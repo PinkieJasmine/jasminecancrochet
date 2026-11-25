@@ -1,0 +1,1173 @@
+/* ===== COLOR PALETTE =====
+   Change a colour once here and it updates everywhere. */
+:root {
+  --purple: #4a0e7a; /* brand deep purple */
+  --lavender: #e2c2f5;
+  --lilac: #c9a2e8;
+  --blush: #fbd3e4; /* soft pink */
+  --butter: #ffe59a; /* soft yellow */
+  --sage: #d3e6c8; /* soft green accent */
+  --cream: #fff8fc;
+  --text: #2d1a3d;
+  --white: #ffffff;
+}
+
+/* ----- Reset & base ----- */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: var(--cream);
+  color: var(--text);
+  font-family: "Poppins", "Segoe UI", Tahoma, sans-serif;
+  line-height: 1.6;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+h1,
+h2,
+h3,
+h4 {
+  font-family: "Playfair Display", Georgia, serif;
+  color: var(--purple);
+}
+
+.container {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+/* Stops the sticky header covering section headings after scrolling */
+section[id] {
+  scroll-margin-top: 100px;
+}
+
+/* ----- Top announcement bar ----- */
+.top-bar {
+  background-color: var(--purple);
+  color: var(--white);
+  text-align: center;
+  font-size: 0.85rem;
+  padding: 8px 12px;
+}
+
+/* ----- Header (sticky) ----- */
+/* ----- Header (sticky) ----- */
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background-color: var(--white);
+  /* border-bottom: 2px solid var(--purple); */
+}
+
+/* Three columns: logo | menu | button */
+.header-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 8px 24px;
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  align-items: center;
+  gap: 16px;
+}
+
+.logo {
+  height: 100px;
+  width: auto;
+  justify-self: start;
+  cursor: pointer;
+}
+
+.nav-strip {
+  display: flex;
+  justify-content: center;
+  gap: 4px;
+}
+
+.nav-strip button {
+  position: relative; /* lets the underline sit under the word */
+  background: none;
+  border: none;
+  color: var(--purple);
+  font-family: inherit;
+  font-size: 0.85rem;
+  font-weight: 600;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  cursor: pointer;
+  padding: 8px 14px;
+  transition: transform 0.25s, color 0.25s;
+}
+
+/* The underline: starts at zero width */
+.nav-strip button::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  bottom: 0;
+  width: 0;
+  height: 3px;
+  background-color: var(--lilac);
+  border-radius: 3px;
+  transform: translateX(-50%);
+  transition: width 0.25s;
+}
+
+/* On hover: the word lifts and the underline grows */
+.nav-strip button:hover {
+  transform: translateY(-2px);
+  color: var(--text);
+}
+
+.nav-strip button:hover::after {
+  width: 70%;
+}
+
+/* Same effect for people who navigate with the keyboard */
+.nav-strip button:focus-visible::after {
+  width: 70%;
+}
+
+.header-btn {
+  justify-self: end;
+  background-color: var(--purple);
+  color: var(--white);
+  border: none;
+  font-family: inherit;
+  font-size: 0.9rem;
+  font-weight: 600;
+  padding: 10px 22px;
+  border-radius: 30px;
+  cursor: pointer;
+}
+
+.header-btn:hover {
+  background-color: var(--text);
+  transform: translateY(-2px);
+}
+
+/* ----- Buttons ----- */
+.btn {
+  background-color: var(--purple);
+  color: var(--white);
+  border: 2px solid var(--purple);
+  padding: 12px 26px;
+  font-family: inherit;
+  font-size: 1rem;
+  font-weight: 600;
+  border-radius: 30px;
+  cursor: pointer;
+  transition: transform 0.2s;
+}
+
+.btn:hover {
+  transform: translateY(-3px);
+}
+
+.btn-light {
+  background-color: var(--white);
+  color: var(--purple);
+}
+
+.btn-small {
+  padding: 8px 16px;
+  font-size: 0.85rem;
+}
+
+/* White pill button used on the photo banner */
+.btn-white {
+  background-color: var(--white);
+  color: var(--purple);
+  border: none;
+  padding: 12px 28px;
+  font-family: inherit;
+  font-size: 1rem;
+  font-weight: 600;
+  border-radius: 30px;
+  cursor: pointer;
+  transition: transform 0.2s;
+}
+
+.btn-white:hover {
+  transform: translateY(-3px);
+}
+
+/* ----- Hero card ----- */
+.hero {
+  padding: 30px 0 40px;
+}
+
+.hero-card {
+  position: relative;
+  overflow: hidden;
+  background: linear-gradient(135deg, var(--lavender) 0%, var(--blush) 100%);
+  border-radius: 40px;
+  padding: 48px;
+  display: grid;
+  grid-template-columns: 1.1fr 1fr;
+  gap: 40px;
+  align-items: center;
+}
+
+.hero-text,
+.hero-visual {
+  position: relative;
+  z-index: 1;
+}
+
+.pill {
+  display: inline-block;
+  background-color: var(--butter);
+  color: var(--purple);
+  font-weight: 600;
+  font-size: 0.85rem;
+  padding: 4px 16px;
+  border-radius: 20px;
+  margin-bottom: 16px;
+}
+
+.hero-text {
+  text-align: left;
+}
+
+.hero-text h2 {
+  font-size: 3rem;
+  line-height: 1.15;
+  margin-bottom: 16px;
+}
+
+/* Handwritten-style words */
+.script {
+  font-family: "Dancing Script", cursive;
+  font-size: 1.15em;
+  color: var(--text);
+}
+
+.hero-subtext {
+  font-size: 1.1rem;
+  margin-bottom: 28px;
+  max-width: 480px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.hero-buttons {
+  display: flex;
+  gap: 14px;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+}
+
+/* Stats row */
+/* ----- Stats row (left-aligned) ----- */
+.stats {
+  display: flex;
+  justify-content: flex-start;
+  margin-top: 32px;
+}
+
+.stat {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  text-align: left;
+  padding: 0 20px;
+  border-left: 2px solid var(--purple);
+}
+
+.stat:first-child {
+  padding-left: 0;
+  border-left: none;
+}
+
+.stat strong {
+  font-family: "Playfair Display", Georgia, serif;
+  font-size: 1.4rem;
+  color: var(--purple);
+  line-height: 1.2;
+}
+
+.stat span {
+  font-size: 0.8rem;
+}
+
+/* Decorations */
+.daisy {
+  position: absolute;
+  z-index: 0;
+  opacity: 0.85;
+}
+
+.daisy-1 {
+  width: 70px;
+  top: 16px;
+  left: 20px;
+}
+
+.daisy-2 {
+  width: 54px;
+  bottom: 18px;
+  right: 24px;
+}
+
+.sparkle {
+  position: absolute;
+  color: var(--purple);
+  z-index: 0;
+}
+
+.s1 {
+  top: 40px;
+  right: 46%;
+  font-size: 1.4rem;
+}
+
+.s2 {
+  bottom: 40px;
+  left: 44%;
+  font-size: 1rem;
+}
+
+/* ----- Carousel (arch shape) ----- */
+.hero-visual {
+  display: flex;
+  justify-content: center;
+}
+
+.carousel {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  max-width: 320px;
+  border-radius: 200px 200px 24px 24px;
+  overflow: hidden;
+  border: 6px solid var(--white);
+  box-shadow: 0 8px 24px rgba(74, 14, 122, 0.25);
+}
+
+.carousel-img {
+  width: 100%;
+  aspect-ratio: 4 / 5;
+  object-fit: cover;
+}
+
+.carousel-arrow {
+  position: absolute;
+  top: 55%;
+  transform: translateY(-50%);
+  background-color: var(--purple);
+  color: var(--white);
+  border: none;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  font-size: 1.5rem;
+  line-height: 1;
+  cursor: pointer;
+}
+
+.carousel-arrow.left {
+  left: 8px;
+}
+
+.carousel-arrow.right {
+  right: 8px;
+}
+
+.carousel-dots {
+  position: absolute;
+  bottom: 12px;
+  left: 0;
+  right: 0;
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+}
+
+.dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  border: 2px solid var(--purple);
+  background-color: var(--white);
+  cursor: pointer;
+  padding: 0;
+}
+
+.dot.active {
+  background-color: var(--purple);
+}
+
+/* Tilted photo frames */
+.polaroid {
+  position: absolute;
+  z-index: 2;
+  width: 105px;
+  background-color: var(--white);
+  padding: 6px 6px 20px;
+  box-shadow: 0 6px 14px rgba(74, 14, 122, 0.25);
+}
+
+.polaroid img {
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+}
+
+.polaroid-1 {
+  top: 30px;
+  left: -34px;
+  transform: rotate(-9deg);
+}
+
+.polaroid-2 {
+  bottom: 90px;
+  right: -34px;
+  transform: rotate(8deg);
+}
+
+/* Round "Made with love" sticker */
+.sticker {
+  position: absolute;
+  z-index: 3;
+  bottom: 10px;
+  left: -8px;
+  width: 88px;
+  height: 88px;
+  background-color: var(--butter);
+  color: var(--purple);
+  font-family: "Dancing Script", cursive;
+  font-weight: 700;
+  font-size: 1.1rem;
+  line-height: 1.1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  border-radius: 50%;
+  border: 3px dashed var(--purple);
+  transform: rotate(-12deg);
+}
+
+/* ----- Scrolling ticker band ----- */
+.ticker {
+  background-color: var(--purple);
+  color: var(--white);
+  overflow: hidden;
+  padding: 12px 0;
+}
+
+.ticker-track {
+  display: flex;
+  width: max-content;
+  animation: ticker-scroll 40s linear infinite;
+}
+
+.ticker-track span {
+  white-space: nowrap;
+  font-size: 0.85rem;
+  font-weight: 600;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+
+@keyframes ticker-scroll {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+/* People who prefer less motion get a still ticker */
+@media (prefers-reduced-motion: reduce) {
+  .ticker-track {
+    animation: none;
+  }
+}
+
+/* ----- Scalloped edges (a band's colour hangs down in bumps) ----- */
+.scallop {
+  height: 22px;
+  background: radial-gradient(circle at 20px 0, var(--scallop) 20px, transparent 21px) repeat-x;
+  background-size: 40px 22px;
+}
+
+.scallop-lilac {
+  --scallop: var(--lilac);
+}
+
+.scallop-sage {
+  --scallop: var(--sage);
+}
+
+.scallop-blush {
+  --scallop: var(--blush);
+}
+
+/* ----- General sections ----- */
+.section {
+  padding: 70px 0;
+}
+
+.eyebrow {
+  font-family: "Dancing Script", cursive;
+  font-size: 1.6rem;
+  color: var(--purple);
+  text-align: center;
+  line-height: 1;
+}
+
+.eyebrow.left {
+  text-align: left;
+}
+
+.section-title {
+  text-align: center;
+  font-size: 2.2rem;
+  margin-bottom: 32px;
+}
+
+/* ----- Flower category badges ----- */
+.flower-section {
+  background-color: var(--lilac);
+  padding-bottom: 50px;
+}
+
+.flowers {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  gap: 16px;
+  justify-items: center;
+}
+
+.flower {
+  width: 100%;
+  max-width: 230px;
+  aspect-ratio: 1 / 1;
+  border: none;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  font-family: inherit;
+  color: var(--purple);
+  transition: transform 0.25s;
+}
+
+.flower:hover {
+  transform: rotate(8deg) scale(1.04);
+}
+
+.flower-script {
+  font-family: "Dancing Script", cursive;
+  font-size: clamp(1.1rem, 3vw, 1.5rem);
+  line-height: 1;
+}
+
+.flower-name {
+  font-family: "Playfair Display", Georgia, serif;
+  font-weight: 700;
+  font-size: clamp(0.95rem, 2.6vw, 1.3rem);
+  line-height: 1.1;
+  text-align: center;
+  padding: 0 8px;
+}
+
+.flower-cream {
+  background-color: var(--cream);
+}
+
+.flower-blush {
+  background-color: var(--blush);
+}
+
+.flower-butter {
+  background-color: var(--butter);
+}
+
+.flower-purple {
+  background-color: var(--purple);
+  color: var(--white);
+}
+
+/* Product photo inside the flower badges */
+.flower {
+  position: relative;
+  overflow: hidden;
+}
+
+.flower-img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: brightness(0.6); /* darkens the photo so the words are readable */
+}
+
+.has-image {
+  color: var(--white);
+}
+
+.has-image span {
+  position: relative;
+  z-index: 1;
+}
+
+/* ----- Feature banner ----- */
+.banner-wrap {
+  padding: 50px 0 10px;
+}
+
+.banner {
+  border-radius: 32px;
+  background-size: cover;
+  background-position: center;
+  color: var(--white);
+  text-align: center;
+  padding: 90px 24px;
+}
+
+.banner-small {
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  font-size: 0.8rem;
+}
+
+.banner h2 {
+  color: var(--white);
+  font-size: 2.4rem;
+  margin: 8px 0;
+}
+
+.banner p:not(.banner-small) {
+  max-width: 480px;
+  margin: 0 auto 24px;
+}
+
+/* ----- "See what's new" strip ----- */
+.strip {
+  background-color: var(--lavender);
+  text-align: center;
+  padding: 18px 12px;
+  margin-top: 40px;
+}
+
+.strip h2 {
+  font-family: "Dancing Script", cursive;
+  font-size: 2.6rem;
+  line-height: 1.2;
+}
+
+/* ----- Shop ----- */
+.shop-section {
+  background-color: var(--white);
+  padding-top: 50px;
+}
+
+.filters {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 36px;
+}
+
+.filter {
+  background-color: var(--cream);
+  color: var(--purple);
+  border: 2px solid var(--lilac);
+  font-family: inherit;
+  font-size: 0.95rem;
+  font-weight: 500;
+  padding: 6px 20px;
+  border-radius: 30px;
+  cursor: pointer;
+}
+
+.filter.active {
+  background-color: var(--purple);
+  color: var(--white);
+  border-color: var(--purple);
+}
+
+.product-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 28px;
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.2s;
+}
+
+.card:hover {
+  transform: translateY(-6px);
+}
+
+.card img {
+  width: 100%;
+  aspect-ratio: 4 / 5;
+  object-fit: cover;
+  border-radius: 28px;
+}
+
+/* Info pill that overlaps the bottom of the photo */
+.card-pill {
+  position: relative;
+  margin: -40px 10px 0;
+  background-color: var(--cream);
+  border: 2px solid var(--lavender);
+  border-radius: 24px;
+  padding: 14px 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  flex-grow: 1;
+  box-shadow: 0 6px 14px rgba(74, 14, 122, 0.15);
+}
+
+.card-pill h3 {
+  font-size: 1.15rem;
+}
+
+.card-desc {
+  font-size: 0.85rem;
+}
+
+.category {
+  align-self: flex-start;
+  background-color: var(--blush);
+  color: var(--purple);
+  font-size: 0.75rem;
+  font-weight: 600;
+  padding: 2px 12px;
+  border-radius: 20px;
+}
+
+.card-bottom {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: auto;
+  padding-top: 6px;
+}
+
+.price {
+  color: var(--purple);
+  font-weight: 700;
+  font-size: 1.2rem;
+}
+
+/* ----- How it works ----- */
+.steps-section {
+  background-color: var(--sage);
+  padding: 60px 0 70px;
+}
+
+.steps {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+  gap: 24px;
+  text-align: center;
+}
+
+.step {
+  background-color: var(--white);
+  border-radius: 24px;
+  padding: 26px 20px;
+}
+
+.step-number {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 52px;
+  height: 52px;
+  background-color: var(--purple);
+  color: var(--white);
+  font-weight: 700;
+  font-size: 1.3rem;
+  border-radius: 50%;
+  margin-bottom: 10px;
+}
+
+.step h3 {
+  margin-bottom: 4px;
+}
+
+/* ----- About ----- */
+.about-grid {
+  display: grid;
+  grid-template-columns: 1fr 1.2fr;
+  gap: 40px;
+  align-items: center;
+}
+
+.about-picture {
+  position: relative;
+}
+
+.about-image {
+  width: 100%;
+  max-width: 380px;
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+  margin: 0 auto;
+  object-position: center  top;
+}
+
+.about-daisy {
+  width: 64px;
+  top: -10px;
+  right: 10px;
+  z-index: 2;
+}
+
+.about-text h2 {
+  font-size: 2.2rem;
+  margin-bottom: 12px;
+}
+
+.about-text p:not(.eyebrow) {
+  margin-bottom: 20px;
+}
+
+/* ----- Reviews ----- */
+.reviews-section {
+  background-color: var(--blush);
+  padding-bottom: 60px;
+}
+
+.reviews {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
+}
+
+.review {
+  background-color: var(--white);
+  border-radius: 24px;
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.stars {
+  color: var(--purple);
+  letter-spacing: 3px;
+}
+
+.review strong {
+  color: var(--purple);
+  margin-top: auto;
+}
+
+/* ----- Instagram ----- */
+.insta-section {
+  text-align: center;
+}
+
+.insta-title {
+  font-family: "Dancing Script", cursive;
+  font-size: 3rem;
+  line-height: 1.1;
+}
+
+.insta-handle {
+  margin-bottom: 28px;
+}
+
+.insta-handle a {
+  color: var(--purple);
+  font-weight: 600;
+}
+
+.insta-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 10px;
+}
+
+.insta-grid img {
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+  border-radius: 16px;
+  transition: transform 0.2s;
+}
+
+.insta-grid img:hover {
+  transform: scale(1.04);
+}
+
+/* ----- Order section ----- */
+.order-section {
+  background: linear-gradient(180deg, var(--lavender) 0%, var(--lilac) 100%);
+}
+
+.order-form {
+  background-color: var(--white);
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 28px;
+  border-radius: 28px;
+  box-shadow: 0 8px 24px rgba(74, 14, 122, 0.2);
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.order-form label {
+  color: var(--purple);
+  font-weight: 600;
+  margin-top: 8px;
+}
+
+.order-form input,
+.order-form textarea {
+  padding: 12px;
+  border: 2px solid var(--lavender);
+  border-radius: 12px;
+  background-color: var(--cream);
+  color: var(--text);
+  font-size: 1rem;
+  font-family: inherit;
+}
+
+.order-form input:focus,
+.order-form textarea:focus {
+  outline: none;
+  border-color: var(--purple);
+}
+
+.order-form .btn {
+  margin-top: 16px;
+}
+
+.contact-info {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 14px;
+  margin-top: 30px;
+}
+
+.contact-pill {
+  background-color: var(--white);
+  color: var(--purple);
+  font-weight: 600;
+  text-decoration: none;
+  padding: 10px 22px;
+  border-radius: 30px;
+}
+
+.contact-pill:hover {
+  background-color: var(--butter);
+}
+
+/* ----- Footer (logo left, links middle, icons right) ----- */
+.footer {
+  background-color: var(--lavender);
+  padding: 40px 0 30px;
+}
+
+.footer-row {
+  display: grid;
+  grid-template-columns: 1fr 2fr 1fr;
+  align-items: center;
+  gap: 24px;
+}
+
+/* Cute irregular curved shape behind the logo */
+.footer-logo-blob {
+  justify-self: start;
+  background-color: var(--blush);
+  border-radius: 62% 38% 55% 45% / 52% 60% 40% 48%;
+  padding: 18px 26px;
+  box-shadow: 0 4px 12px rgba(74, 14, 122, 0.15);
+}
+
+.footer-logo {
+  height: 64px;
+  width: auto;
+}
+
+/* Middle column */
+.footer-center {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  text-align: center;
+}
+
+.footer-nav {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 8px 22px;
+}
+
+.footer-nav button {
+  background: none;
+  border: none;
+  padding: 0;
+  font-family: inherit;
+  font-size: 0.85rem;
+  font-weight: 600;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: var(--purple);
+  cursor: pointer;
+  transition: transform 0.2s, color 0.2s;
+}
+
+.footer-nav button:hover {
+  color: var(--text);
+  transform: translateY(-2px);
+}
+
+.footer-email {
+  font-size: 0.9rem;
+  color: var(--text);
+  text-decoration: none;
+}
+
+.footer-email:hover {
+  color: var(--purple);
+  text-decoration: underline;
+}
+
+.footer-copy {
+  font-size: 0.8rem;
+  color: var(--purple);
+  opacity: 0.85;
+}
+
+/* Right column: small icons + "Follow us" */
+.footer-social {
+  justify-self: end;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+}
+
+.socials {
+  display: flex;
+  gap: 16px;
+}
+
+.socials a {
+  display: flex;
+  color: var(--purple);
+  font-size: 1.3rem;
+  transition: transform 0.25s, color 0.25s;
+}
+
+.socials a:hover {
+  color: var(--text);
+  transform: translateY(-3px);
+}
+
+.follow-text {
+  font-family: "Dancing Script", cursive;
+  font-size: 1.3rem;
+  color: var(--purple);
+  line-height: 1.2;
+}
+
+/* ----- Floating WhatsApp button ----- */
+.float-btn {
+  position: fixed;
+  right: 16px;
+  bottom: 16px;
+  z-index: 90;
+  background-color: var(--purple);
+  color: var(--white);
+  font-weight: 600;
+  text-decoration: none;
+  padding: 12px 20px;
+  border-radius: 30px;
+  box-shadow: 0 6px 16px rgba(74, 14, 122, 0.4);
+  transition: transform 0.25s;
+}
+
+.float-btn:hover {
+  transform: translateY(-3px);
+}
+
+/* Phones: stack everything in the middle */
+@media (max-width: 800px) {
+  .footer-row {
+    grid-template-columns: 1fr;
+    justify-items: center;
+    gap: 26px;
+  }
+
+  .footer-logo-blob,
+  .footer-social {
+    justify-self: center;
+  }
+}
+
+
+@media (max-width: 500px) {
+  section[id] {
+    scroll-margin-top: 120px;
+  }
+
+  .logo {
+    height: 44px;
+  }
+
+  .nav-strip button {
+    padding: 4px 9px;
+    font-size: 0.85rem;
+  }
+
+  .section {
+    padding: 50px 0;
+  }
+
+  .banner {
+    padding: 60px 20px;
+  }
+
+  .banner h2 {
+    font-size: 1.9rem;
+  }
+
+  .strip h2 {
+    font-size: 2rem;
+  }
+
+  .insta-title {
+    font-size: 2.3rem;
+  }
+
+  .stat {
+    padding: 0 12px;
+  }
+}
+
