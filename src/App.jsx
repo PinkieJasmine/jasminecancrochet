@@ -411,7 +411,6 @@ function App() {
             <p className="eyebrow left">face of the brand</p>
             <h2>Hi, I'm Jasmine</h2>
             {/* ← CHANGE THIS text to your own story */}
-            <h2>Hi, I’m Jasmine</h2>
             <p>
               The creative hands behind Jasminecancrochet. What began as a love for yarn,
               colour and crochet has grown into a handmade brand creating bags and
