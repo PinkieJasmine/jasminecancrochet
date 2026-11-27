@@ -82,6 +82,15 @@ function App() {
   // Which product category is selected in the shop
   const [filter, setFilter] = useState("All");
 
+    // Is the phone menu open?
+  const [menuOpen, setMenuOpen] = useState(false);
+
+  // Scroll to a section and close the phone menu
+  function goTo(id) {
+    scrollToSection(id);
+    setMenuOpen(false);
+  }
+
   // Moves the carousel every 4 seconds
   useEffect(() => {
     const timer = setInterval(() => {
@@ -152,26 +161,35 @@ function App() {
 
       {/* ================= HEADER: logo + menu strip (sticky) ================= */}
             {/* ================= HEADER: logo left, menu middle, button right ================= */}
-      <header className="site-header">
+            <header className="site-header">
         <div className="header-inner">
           <img
-            src="/logo1.png"
+            src="/logo.png"
             alt="Jasminecancrochet logo"
             className="logo"
-            onClick={() => scrollToSection("home")}
+            onClick={() => goTo("home")}
           />
 
-          <nav className="nav-strip">
-            <button onClick={() => scrollToSection("home")}>Home</button>
-            <button onClick={() => scrollToSection("shop")}>Shop</button>
-            <button onClick={() => scrollToSection("about")}>About</button>
-            <button onClick={() => scrollToSection("reviews")}>Reviews</button>
-            <button onClick={() => scrollToSection("order")}>Order</button>
+          <nav className={menuOpen ? "nav-strip open" : "nav-strip"}>
+            <button onClick={() => goTo("home")}>Home</button>
+            <button onClick={() => goTo("shop")}>Shop</button>
+            <button onClick={() => goTo("about")}>About</button>
+            <button onClick={() => goTo("reviews")}>Reviews</button>
+            <button onClick={() => goTo("order")}>Order</button>
           </nav>
 
-          <button className="header-btn" onClick={() => scrollToSection("order")}>
-            Order Now
-          </button>
+          <div className="header-right">
+            <button className="header-btn" onClick={() => goTo("order")}>
+              Order Now
+            </button>
+            <button
+              className="menu-toggle"
+              onClick={() => setMenuOpen(!menuOpen)}
+              aria-label="Open menu"
+            >
+              {menuOpen ? "✕" : "☰"}
+            </button>
+          </div>
         </div>
       </header>
 

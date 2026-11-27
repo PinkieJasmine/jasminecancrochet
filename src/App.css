@@ -1557,3 +1557,60 @@ body {
     display: none;
   }
 }
+
+/* Button group on the right of the header */
+.header-right {
+  justify-self: end;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+/* The ☰ button is hidden on laptops and tablets */
+.menu-toggle {
+  display: none;
+  width: 42px;
+  height: 42px;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--lavender);
+  color: var(--purple);
+  border: none;
+  border-radius: 50%;
+  font-size: 1.3rem;
+  cursor: pointer;
+}
+
+/* Phones and small tablets */
+@media (max-width: 700px) {
+  .header-inner {
+    grid-template-columns: 1fr auto;
+  }
+
+  .menu-toggle {
+    display: flex;
+  }
+
+  /* Menu is hidden until ☰ is tapped */
+  .nav-strip {
+    display: none;
+    grid-column: 1 / -1;
+    grid-row: 2;
+    flex-direction: column;
+    align-items: center;
+    padding-bottom: 8px;
+  }
+
+  .nav-strip.open {
+    display: flex;
+  }
+
+  .nav-strip button {
+    font-size: 0.95rem;
+    padding: 10px 14px;
+  }
+
+  section[id] {
+    scroll-margin-top: 90px;
+  }
+}
