@@ -419,9 +419,8 @@ function App() {
             </p>
             <p>
               For me, crochet is more than making things with yarn. It’s a way of turning
-              creativity into something you can carry, wear and call your own. Tell me the
-              colour and size you want, and I’ll make it just for you.
-            </p>
+              creativity into something you can carry, wear and call your own. Each piece can be thoughtfully customized to your taste,
+              making it uniquely yours.
             <p>
               Thank you for supporting my little creative world. Every piece you choose
               carries a little bit of my heart.
