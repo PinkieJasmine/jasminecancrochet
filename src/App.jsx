@@ -411,11 +411,23 @@ function App() {
             <p className="eyebrow left">face of the brand</p>
             <h2>Hi, I'm Jasmine</h2>
             {/* ← CHANGE THIS text to your own story */}
+            <h2>Hi, I’m Jasmine</h2>
             <p>
-              Every piece at Jasminecancrochet is crocheted by hand, one stitch at a
-              time, with soft yarn and a lot of love. Tell me the colour and size you
-              want, and I'll make it just for you.
+              The creative hands behind Jasminecancrochet. What began as a love for yarn,
+              colour and crochet has grown into a handmade brand creating bags and
+              accessories with personality. Every piece is made by hand, from choosing the
+              colour combinations to adding the smallest finishing details.
             </p>
+            <p>
+              For me, crochet is more than making things with yarn. It’s a way of turning
+              creativity into something you can carry, wear and call your own. Tell me the
+              colour and size you want, and I’ll make it just for you.
+            </p>
+            <p>
+              Thank you for supporting my little creative world. Every piece you choose
+              carries a little bit of my heart.
+            </p>
+            <p className="signoff">Handcrafted with love, one stitch at a time.</p>
             <button className="btn" onClick={() => scrollToSection("order")}>
               Place Custom Order
             </button>

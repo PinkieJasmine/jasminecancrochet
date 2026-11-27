@@ -1614,3 +1614,8 @@ body {
     scroll-margin-top: 90px;
   }
 }
+.about-text .signoff {
+  font-family: "Dancing Script", cursive;
+  font-size: 1.5rem;
+  color: var(--purple);
+}
