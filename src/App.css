@@ -1547,3 +1547,13 @@ body {
     padding: 0 10px;
   }
 }
+
+@media (max-width: 600px) {
+  .logo {
+    height: 60px;
+  }
+
+  .s1 {
+    display: none;
+  }
+}
